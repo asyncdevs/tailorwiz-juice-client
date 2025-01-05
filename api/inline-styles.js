@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import juice from 'juice';
+import inlineCss from 'inline-css';
 
 export default async function handler(req, res) {
   // Add CORS headers to allow cross-origin requests
@@ -28,7 +29,12 @@ export default async function handler(req, res) {
       }
 
       const html = await response.text();
-      const inlinedHtml = juice(html); // Inline styles
+      const inlinedHtml = await inlineCss(html, {url: 'http://localhost'})
+      
+      // const inlinedHtml = juice(html, {removeStyleTags: false,
+      //   preserveMediaQueries: true,
+      //   applyStyleTags: true,
+      //   applyAttributesTableElements: true}); // Inline styles
 
       res.status(200).send(inlinedHtml);
     } catch (error) {
