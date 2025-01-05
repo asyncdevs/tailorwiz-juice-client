@@ -2,16 +2,16 @@
   "name": "tailorwiz-juice-client",
   "version": "1.0.0",
   "description": "tailorwiz-juice-client",
-  "main": "index.js",
+  "main": "api/inline-styles.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vercel dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2",
     "juice": "^11.0.0",
     "node-fetch": "^3.3.2"
   }
